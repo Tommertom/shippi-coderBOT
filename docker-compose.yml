@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  coderbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: coderbot-instance
+    volumes:
+      - ./logs:/app/logs
+      - coderbot-media:/tmp/coderBOT_media
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+
+volumes:
+  coderbot-media:
